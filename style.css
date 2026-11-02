@@ -1,0 +1,348 @@
+/* Today, Apparently — Stylesheet */
+
+:root {
+  --bg: #0D0D0D;
+  --text: #E8E6DF;
+  --text-punchline: #D2CEC3;
+  --accent: #C8A96E;
+  --card-bg: #161616;
+  --border: #2A2A2A;
+  --muted: #858279;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 20px 96px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 72px 32px 128px;
+  }
+}
+
+/* Top Date & Almanac Header */
+.top-date-section {
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+}
+
+.masthead-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.masthead-kicker {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.masthead-tag {
+  color: var(--muted);
+}
+
+.date-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.date-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 8vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.date-meta {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+/* 4-Cell Almanac Grid */
+.almanac-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--border);
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .almanac-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.almanac-cell {
+  background-color: var(--card-bg);
+  padding: 14px 14px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.almanac-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.almanac-value {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.almanac-sub {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--accent);
+  line-height: 1.35;
+}
+
+/* Fact Stream */
+.facts-stream {
+  display: flex;
+  flex-direction: column;
+}
+
+.fact-block {
+  position: relative;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.18s ease,
+              padding-left 0.18s ease,
+              padding-right 0.18s ease;
+}
+
+@media (min-width: 640px) {
+  .fact-block {
+    padding: 44px 0;
+  }
+
+  .fact-block:hover {
+    background-color: var(--card-bg);
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-left: -18px;
+    margin-right: -18px;
+    border-radius: 4px;
+  }
+}
+
+.fact-block.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fact-block {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.fact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.fact-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fact-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.fact-sep {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--border);
+}
+
+.fact-category {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.fact-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.inline-util-btn {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 2px 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.inline-util-btn:hover,
+.inline-util-btn:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.copy-fact-btn {
+  opacity: 0.65;
+}
+
+.fact-block:hover .copy-fact-btn {
+  opacity: 1;
+}
+
+.fact-text {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.7vw, 1.5rem);
+  line-height: 1.75;
+  letter-spacing: 0.004em;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+.fact-punchline {
+  font-style: italic;
+  color: var(--text-punchline);
+}
+
+/* Bottom Share & Actions */
+.share-wrapper {
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-button {
+  appearance: none;
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.action-button:hover,
+.action-button:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+
+.action-button:active {
+  transform: translateY(1px);
+}
+
+.action-button-subtle {
+  color: var(--muted);
+}
+
+.colophon-note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}

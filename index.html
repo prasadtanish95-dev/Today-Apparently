@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today, Apparently</title>
+    <meta
+      name="description"
+      content="A minimalist static daily almanac of 100% true, completely useless facts powered by astronomical calculations and deterministic daily shuffling."
+    />
+    <meta property="og:title" content="Today, Apparently" />
+    <meta
+      property="og:description"
+      content="A minimalist static daily almanac of 100% true, completely useless facts powered by astronomical calculations and deterministic daily shuffling."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="top-date-section" aria-label="Today's date and useless almanac">
+        <div class="masthead-bar">
+          <span class="masthead-kicker">TODAY, APPARENTLY · MUMBAI EDITION</span>
+          <span class="masthead-tag">100% TRUE · 0% USEFUL</span>
+        </div>
+
+        <div class="date-title-row">
+          <h1 id="date-heading" class="date-heading">November 2</h1>
+          <button
+            id="shuffle-top-button"
+            type="button"
+            class="action-button action-button-subtle"
+            title="Deal a fresh batch of useless facts"
+          >
+            Deal another 15
+          </button>
+        </div>
+
+        <p id="date-meta" class="date-meta">
+          Day 306 of 365 · 🌕 87% full · Waning · Mumbai (19.08°N, 72.88°E)
+        </p>
+
+        <!-- 4-Cell Useless Daily Telemetry Grid -->
+        <div class="almanac-grid" aria-label="Daily astronomical and orbital telemetry">
+          <div class="almanac-cell">
+            <span class="almanac-label">YEAR CONSUMED</span>
+            <span id="stat-year-val" class="almanac-value">83.8%</span>
+            <span id="stat-year-sub" class="almanac-sub">59 days left to panic</span>
+          </div>
+          <div class="almanac-cell">
+            <span class="almanac-label">MOON STATUS</span>
+            <span id="stat-moon-val" class="almanac-value">🌕 87%</span>
+            <span id="stat-moon-sub" class="almanac-sub">Waning · Unbothered</span>
+          </div>
+          <div class="almanac-cell">
+            <span class="almanac-label">MUMBAI SUNLIGHT</span>
+            <span id="stat-sun-val" class="almanac-value">11h 23m</span>
+            <span id="stat-sun-sub" class="almanac-sub">6:39 AM – 6:02 PM IST</span>
+          </div>
+          <div class="almanac-cell">
+            <span class="almanac-label">COUCH ODOMETER</span>
+            <span id="stat-orbit-val" class="almanac-value">0 km</span>
+            <span class="almanac-sub">Traveled around Sun today</span>
+          </div>
+        </div>
+      </section>
+
+      <div id="facts-stream" class="facts-stream" aria-live="polite"></div>
+
+      <div class="share-wrapper">
+        <div class="share-actions">
+          <button id="share-button" type="button" class="action-button">
+            Share today
+          </button>
+          <button id="shuffle-bottom-button" type="button" class="action-button action-button-subtle">
+            Give me more useless facts
+          </button>
+        </div>
+        <p class="colophon-note">
+          Please do not use any of this information in a job interview.
+        </p>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+    <script src="./facts.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
