@@ -1,14 +1,4 @@
-/**
- * Today, Apparently — Curated Facts Repository
- *
- * Style Rules for Contributors (via Pull Request):
- * 1. Sentence one: A verifiable, specific fact with concrete detail.
- * 2. Sentence two: A dry, deadpan, slightly unimpressed observation.
- * 3. Maximum two sentences (or short dry clauses).
- * 4. No exclamation marks. No "Did you know". No "Fascinating".
- * 5. Categories: MUMBAI, BIOLOGY, MOON, HISTORY, TODAY, MATH, SPACE, LANGUAGE,
- *    PHYSICS, ANIMALS, FOOD, HUMAN BODY, ANCIENT
- */
+
 
 window.MUMBAI_FACTS_DATA = [
   {
